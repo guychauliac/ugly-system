@@ -2,17 +2,18 @@ package com.zenika.uglysystem.game;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
 public class Game {
-    ArrayList players = new ArrayList();
-    int[] places = new int[6];
-    int[] purses  = new int[6];
-    boolean[] inPenaltyBox  = new boolean[6];
+    private List<String> players = new ArrayList<>();
+    private int[] places = new int[6];
+    private int[] purses  = new int[6];
+    private boolean[] inPenaltyBox  = new boolean[6];
     
-    LinkedList popQuestions = new LinkedList();
-    LinkedList scienceQuestions = new LinkedList();
-    LinkedList sportsQuestions = new LinkedList();
-    LinkedList rockQuestions = new LinkedList();
+    private List<String> popQuestions = new LinkedList<>();
+    private List<String> scienceQuestions = new LinkedList<>();
+    private List<String> sportsQuestions = new LinkedList<>();
+    private List<String> rockQuestions = new LinkedList<>();
     
     int currentPlayer = 0;
     boolean isGettingOutOfPenaltyBox;

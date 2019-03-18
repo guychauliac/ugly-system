@@ -26,6 +26,7 @@ pipeline {
                 withSonarQubeEnv('sonarSummit') {
                     sh "${scannerHome}/bin/sonar-scanner"
                 }
+                sleep 20
                 timeout(time: 10, unit: 'MINUTES') {
                     waitForQualityGate abortPipeline: true
                 }
