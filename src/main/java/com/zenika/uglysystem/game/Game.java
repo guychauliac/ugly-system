@@ -16,7 +16,7 @@ public class Game {
     private LinkedList<String> rockQuestions = new LinkedList<>();
     
     private int currentPlayer = 0;
-    priavate boolean isGettingOutOfPenaltyBox;
+    private boolean isGettingOutOfPenaltyBox;
     
     public  Game(){
     	for (int i = 0; i < 50; i++) {
