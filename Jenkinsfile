@@ -5,6 +5,16 @@ pipeline {
         disableConcurrentBuilds()
     }
     stages {
+        stage('SCM') {
+            git 'https://github.com/foo/bar.git'
+        }
+        stage('SonarQube analysis') {
+            // requires SonarQube Scanner 2.8+
+            def scannerHome = tool 'sonar3.3';
+            withSonarQubeEnv('sonarSummit') {
+                sh "${scannerHome}/bin/sonar-scanner"
+            }
+        }
         stage('Build artifact') {
             agent {
                 docker {
