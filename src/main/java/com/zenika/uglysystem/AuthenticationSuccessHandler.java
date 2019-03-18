@@ -1,7 +1,7 @@
 package com.zenika.uglysystem;
 
-//import org.slf4j.Logger;
-//import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationListener;
 import org.springframework.security.authentication.event.AuthenticationSuccessEvent;
 import org.springframework.security.core.Authentication;
@@ -17,7 +17,7 @@ public class AuthenticationSuccessHandler implements ApplicationListener<Authent
     public void onApplicationEvent(AuthenticationSuccessEvent event) {
         
         // this should not be logged, but keep it in mind for the other teams
-        Authentication auth
-        LOG.info("{} logged in", ((User) event.getPrincipal()).getUsername());
+        Authentication authentication = event.getAuthentication();
+        LOG.info("{} logged in", ((User) authentication.getPrincipal()).getUsername());
     }
 }
