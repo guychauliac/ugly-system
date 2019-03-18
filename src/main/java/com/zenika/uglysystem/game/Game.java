@@ -10,13 +10,13 @@ public class Game {
     private int[] purses  = new int[6];
     private boolean[] inPenaltyBox  = new boolean[6];
     
-    private List<String> popQuestions = new LinkedList<>();
-    private List<String> scienceQuestions = new LinkedList<>();
-    private List<String> sportsQuestions = new LinkedList<>();
-    private List<String> rockQuestions = new LinkedList<>();
+    private LinkedList<String> popQuestions = new LinkedList<>();
+    private LinkedList<String> scienceQuestions = new LinkedList<>();
+    private LinkedList<String> sportsQuestions = new LinkedList<>();
+    private LinkedList<String> rockQuestions = new LinkedList<>();
     
-    int currentPlayer = 0;
-    boolean isGettingOutOfPenaltyBox;
+    private int currentPlayer = 0;
+    priavate boolean isGettingOutOfPenaltyBox;
     
     public  Game(){
     	for (int i = 0; i < 50; i++) {
@@ -36,9 +36,7 @@ public class Game {
 	}
 
 	public boolean add(String playerName) {
-		
-		
-	    players.add(playerName);
+		players.add(playerName);
 	    places[howManyPlayers()] = 0;
 	    purses[howManyPlayers()] = 0;
 	    inPenaltyBox[howManyPlayers()] = false;
