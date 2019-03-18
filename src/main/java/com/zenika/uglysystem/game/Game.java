@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Game {
-    private List<String> players = new ArrayList<>();
+    private ArrayList<String> players = new ArrayList<>();
     private int[] places = new int[6];
     private int[] purses  = new int[6];
     private boolean[] inPenaltyBox  = new boolean[6];

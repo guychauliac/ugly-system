@@ -11,11 +11,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class AuthenticationSuccessHandler implements ApplicationListener<AuthenticationSuccessEvent> {
 
-  
+    private static final Logger LOG = LoggerFactory.getLogger(AuthenticationSuccessHandler.class);
+
     @Override
     public void onApplicationEvent(AuthenticationSuccessEvent event) {
-        Authentication authentication = event.getAuthentication();
+        
         // this should not be logged, but keep it in mind for the other teams
-        // LOG.info("{} logged in", ((User) authentication.getPrincipal()).getUsername());
+        LOG.info("{} logged in", ((User) authentication.getPrincipal()).getUsername());
     }
 }
