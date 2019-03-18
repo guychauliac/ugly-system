@@ -5,19 +5,6 @@ pipeline {
         disableConcurrentBuilds()
     }
     stages {
-        stage('Sonarqube') {
-            environment {
-                scannerHome = tool 'sonar3.3'
-            }
-            steps {
-                withSonarQubeEnv('sonarSummit') {
-                    sh "${scannerHome}/bin/sonar-scanner"
-                }
-                timeout(time: 10, unit: 'MINUTES') {
-                    waitForQualityGate abortPipeline: true
-                }
-            }
-        }
         stage('Build artifact') {
             agent {
                 docker {
@@ -29,6 +16,19 @@ pipeline {
                 sh '''
                 mvn  clean install
                 '''
+            }
+        }
+        stage('Sonarqube') {
+            environment {
+                scannerHome = tool 'sonar3.3'
+            }
+            steps {
+                withSonarQubeEnv('sonarSummit') {
+                    sh "${scannerHome}/bin/sonar-scanner"
+                }
+                timeout(time: 10, unit: 'MINUTES') {
+                    waitForQualityGate abortPipeline: true
+                }
             }
         }
 
