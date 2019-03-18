@@ -14,8 +14,8 @@ public class FlagController {
 
     @GetMapping
     public List<String> getFlags() {
-        return asList(
-        );
+        return asList(new String[]{
+            "QUIZ_SHIFTINGSECURITYLEFT_DEV0_SEC1_OPS0_28ej92d2xc5s7b45vbcp49339xapth6d57f8z3r6h42km39m"
+        });
     }
-
 }

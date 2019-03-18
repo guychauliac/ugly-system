@@ -6,11 +6,9 @@ pipeline {
     }
     stages {
         stage('SonarQube analysis') {
-            steps {
-                def scannerHome = tool 'sonar3.3';
-                withSonarQubeEnv('sonarSummit') {
-                    sh "${scannerHome}/bin/sonar-scanner"
-                }
+            def scannerHome = tool 'sonar3.3';
+            withSonarQubeEnv('sonarSummit') {
+                sh "${scannerHome}/bin/sonar-scanner"
             }
         }
         stage('Build artifact') {
