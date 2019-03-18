@@ -7,8 +7,5 @@ import static org.junit.Assert.assertTrue;
 
 public class GameTest {
 
-    @Test
-    public void true_is_true() throws Exception {
-        assertTrue(false);
-    }
+
 }
