@@ -5,10 +5,17 @@ pipeline {
         disableConcurrentBuilds()
     }
     stages {
-        stage('SonarQube analysis') {
-            def scannerHome = tool 'sonar3.3';
-            withSonarQubeEnv('sonarSummit') {
-                sh "${scannerHome}/bin/sonar-scanner"
+        stage('Sonarqube') {
+            environment {
+                scannerHome = tool 'sonar3.3'
+            }
+            steps {
+                withSonarQubeEnv('sonarSummit') {
+                    sh "${scannerHome}/bin/sonar-scanner"
+                }
+                timeout(time: 10, unit: 'MINUTES') {
+                    waitForQualityGate abortPipeline: true
+                }
             }
         }
         stage('Build artifact') {
