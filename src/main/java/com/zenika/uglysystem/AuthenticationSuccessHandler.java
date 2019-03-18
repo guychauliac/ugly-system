@@ -16,6 +16,7 @@ public class AuthenticationSuccessHandler implements ApplicationListener<Authent
     @Override
     public void onApplicationEvent(AuthenticationSuccessEvent event) {
         Authentication authentication = event.getAuthentication();
-        LOG.info("{} logged in", ((User) authentication.getPrincipal()).getUsername());
+        // this should not be logged, but keep it in mind for the other teams
+        // LOG.info("{} logged in", ((User) authentication.getPrincipal()).getUsername());
     }
 }
