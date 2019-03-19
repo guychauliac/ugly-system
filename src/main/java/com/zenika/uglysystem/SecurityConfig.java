@@ -17,7 +17,7 @@ public class SecurityConfig {
 
     @Bean
     public UserDetailsService userDetailsService() {
-        // ensure the passwords are encoded properly
+        // ensure the passwords are encoded properly, 
         InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
         manager.createUser(User.withUsername("admin").password("M33KTczYfsmu9CWk").roles("USER", "ADMIN").build());
         return manager;
@@ -32,10 +32,10 @@ public class SecurityConfig {
             http
                     .csrf().disable()
                     .authorizeRequests()
-                    .mvcMatchers("/admin").authenticated()
+                    .mvcMatchers("/admin", "/actuator/logfile", "/actuator/health").authenticated()
                     .and()
-                    .httpBasic();
-                    //.and().requiresChannel().anyRequest().requiresSecure(); //Simone: trying to force https
+                    .httpBasic()
+                    .and().requiresChannel().anyRequest().requiresSecure(); //Simone: trying to force https
         }
 
         @Autowired
