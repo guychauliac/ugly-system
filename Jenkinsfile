@@ -12,19 +12,14 @@ pipeline {
                     image 'maven:3.5.3-jdk-8-slim'
                 }
             }
-            steps {
-                sh '''
-                mvn  clean install
-                '''
-            }
-        }
-        stage('Sonarqube') {
             environment {
                 scannerHome = tool 'sonar3.3'
             }
             steps {
                 withSonarQubeEnv('sonarSummit') {
-                    sh "${scannerHome}/bin/sonar-scanner"
+                    sh '''
+                    mvn clean install sonar:sonar
+                    '''
                 }
                 sleep(time:20, unit:"SECONDS")
                 timeout(time: 10, unit: 'MINUTES') {
@@ -32,7 +27,6 @@ pipeline {
                 }
             }
         }
-
         stage('Deploy') {
             environment {
                 SSH_KEY = credentials('SSH_KEY')
