@@ -62,21 +62,23 @@ public class Game {
 	}
 
 	public void roll(int roll) {
-		LOG.info(players.get(currentPlayer) + " is the current player");
+		String currentPlayerString = players.get(currentPlayer);
+		LOG.info(currentPlayerString + " is the current player");
 		LOG.info("They have rolled a {0} ", roll);
 		
+		String currentCategory = currentCategory();
 		if (inPenaltyBox[currentPlayer]) {
 			if (roll % 2 != 0) {
 				isGettingOutOfPenaltyBox = true;
 				
-				LOG.info( "{0} is getting out of the penalty box", players.get(currentPlayer));
+				LOG.info( "{0} is getting out of the penalty box", currentPlayerString);
 				places[currentPlayer] = places[currentPlayer] + roll;
 				if (places[currentPlayer] > 11) places[currentPlayer] = places[currentPlayer] - 12;
 				
-				LOG.info("{0}'s new location is {1} \nThe category is {2} ", players.get(currentPlayer), places[currentPlayer], currentCategory());
+				LOG.info("{0}'s new location is {1} \nThe category is {2} ", currentPlayerString, places[currentPlayer], currentCategory);
 				askQuestion();
 			} else {
-				LOG.info("{0} is not getting out of the penalty box", players.get(currentPlayer));
+				LOG.info("{0} is not getting out of the penalty box", currentPlayerString);
 				isGettingOutOfPenaltyBox = false;
 				}
 			
@@ -85,21 +87,29 @@ public class Game {
 			places[currentPlayer] = places[currentPlayer] + roll;
 			if (places[currentPlayer] > 11) places[currentPlayer] = places[currentPlayer] - 12;
 			
-			LOG.info( "{0}'s new location is {1}\nThe category is {2}", players.get(currentPlayer),places[currentPlayer], currentCategory());
+			LOG.info( "{0}'s new location is {1}\nThe category is {2}", currentPlayerString,places[currentPlayer], currentCategory);
 			askQuestion();
 		}
 		
 	}
 
 	private void askQuestion() {
-		if (pop.equalsIgnoreCase(currentCategory()))
-			LOG.info(popQuestions.removeFirst());
-		if (science.equalsIgnoreCase(currentCategory()))
-			LOG.info(scienceQuestions.removeFirst());
-		if (sports.equalsIgnoreCase(currentCategory()))
-			LOG.info(sportsQuestions.removeFirst());
-		if (ROCK.equalsIgnoreCase(currentCategory()))
-			LOG.info(rockQuestions.removeFirst());		
+		if (pop.equalsIgnoreCase(currentCategory())) {
+			String removeFirst = popQuestions.removeFirst();
+			LOG.info(removeFirst);
+		}
+		if (science.equalsIgnoreCase(currentCategory())) {
+			String removeFirst = scienceQuestions.removeFirst();
+			LOG.info(removeFirst);
+		}
+		if (sports.equalsIgnoreCase(currentCategory())) {
+			String removeFirst = sportsQuestions.removeFirst();
+			LOG.info(removeFirst);
+		}
+		if (ROCK.equalsIgnoreCase(currentCategory())) {
+			String removeFirst = rockQuestions.removeFirst();
+			LOG.info(removeFirst);
+		}		
 	}
 	
 	
