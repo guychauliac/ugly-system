@@ -63,7 +63,7 @@ public class Game {
 
 	public void roll(int roll) {
 		String currentPlayerString = players.get(currentPlayer);
-		LOG.info(currentPlayerString + " is the current player");
+		LOG.info("{0} is the current player", currentPlayerString);
 		LOG.info("They have rolled a {0} ", roll);
 		
 		String currentCategory = currentCategory();
