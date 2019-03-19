@@ -73,8 +73,7 @@ public class Game {
 				places[currentPlayer] = places[currentPlayer] + roll;
 				if (places[currentPlayer] > 11) places[currentPlayer] = places[currentPlayer] - 12;
 				
-				LOG.info("{0}'s new location is {1}", players.get(currentPlayer), places[currentPlayer]);
-				LOG.info("The category is {0} ", currentCategory());
+				LOG.info("{0}'s new location is {1} \nThe category is {2} ", players.get(currentPlayer), places[currentPlayer], currentCategory());
 				askQuestion();
 			} else {
 				LOG.info("{0} is not getting out of the penalty box", players.get(currentPlayer));
@@ -86,8 +85,7 @@ public class Game {
 			places[currentPlayer] = places[currentPlayer] + roll;
 			if (places[currentPlayer] > 11) places[currentPlayer] = places[currentPlayer] - 12;
 			
-			LOG.info( "{0}'s new location is {1}", players.get(currentPlayer),places[currentPlayer]);
-			LOG.info("The category is {0} ", currentCategory());
+			LOG.info( "{0}'s new location is {1}\nThe category is {2}", players.get(currentPlayer),places[currentPlayer], currentCategory());
 			askQuestion();
 		}
 		
@@ -153,8 +151,7 @@ public class Game {
 	}
 	
 	public boolean wrongAnswer(){
-		LOG.info("Question was incorrectly answered");
-		LOG.info(players.get(currentPlayer)+ " was sent to the penalty box");
+		LOG.info("Question was incorrectly answere\n{0} was sent to the penalty box",players.get(currentPlayer));
 		inPenaltyBox[currentPlayer] = true;
 		
 		currentPlayer++;
@@ -164,6 +161,6 @@ public class Game {
 
 
 	private boolean didPlayerWin() {
-		return !(purses[currentPlayer] == 6);
+		return purses[currentPlayer] != 6;
 	}
 }
