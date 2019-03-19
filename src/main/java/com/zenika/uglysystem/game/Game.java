@@ -23,9 +23,9 @@ public class Game {
     
     private int currentPlayer = 0;
     private boolean isGettingOutOfPenaltyBox;
-    private static String POP = "Pop";
-    private static String SCIENCE = "Science";
-    private static String SPORTS = "Sports";
+    private static String pop = "Pop";
+    private static String science = "Science";
+    private static String sports = "Sports";
     
     
     
@@ -94,11 +94,11 @@ public class Game {
 	}
 
 	private void askQuestion() {
-		if (POP.equalsIgnoreCase(currentCategory()))
+		if (pop.equalsIgnoreCase(currentCategory()))
 			LOG.info(popQuestions.removeFirst());
-		if (SCIENCE.equalsIgnoreCase(currentCategory()))
+		if (science.equalsIgnoreCase(currentCategory()))
 			LOG.info(scienceQuestions.removeFirst());
-		if (SPORTS.equalsIgnoreCase(currentCategory()))
+		if (sports.equalsIgnoreCase(currentCategory()))
 			LOG.info(sportsQuestions.removeFirst());
 		if (ROCK.equalsIgnoreCase(currentCategory()))
 			LOG.info(rockQuestions.removeFirst());		
@@ -106,15 +106,15 @@ public class Game {
 	
 	
 	private String currentCategory() {
-		if (places[currentPlayer] == 0) return POP;
-		if (places[currentPlayer] == 4) return POP;
-		if (places[currentPlayer] == 8) return POP;
-		if (places[currentPlayer] == 1) return SCIENCE;
-		if (places[currentPlayer] == 5) return SCIENCE;
-		if (places[currentPlayer] == 9) return SCIENCE;
-		if (places[currentPlayer] == 2) return SPORTS;
-		if (places[currentPlayer] == 6) return SPORTS;
-		if (places[currentPlayer] == 10) return SPORTS;
+		if (places[currentPlayer] == 0) return pop;
+		if (places[currentPlayer] == 4) return pop;
+		if (places[currentPlayer] == 8) return pop;
+		if (places[currentPlayer] == 1) return science;
+		if (places[currentPlayer] == 5) return science;
+		if (places[currentPlayer] == 9) return science;
+		if (places[currentPlayer] == 2) return sports;
+		if (places[currentPlayer] == 6) return sports;
+		if (places[currentPlayer] == 10) return sports;
 		return ROCK;
 	}
 
@@ -123,10 +123,7 @@ public class Game {
 			if (isGettingOutOfPenaltyBox) {
 				LOG.info("Answer was correct!!!!");
 				purses[currentPlayer]++;
-				LOG.info(players.get(currentPlayer) 
-						+ " now has "
-						+ purses[currentPlayer]
-						+ " Gold Coins.");
+				LOG.info("{0} now has {1} Gold Coins.", players.get(currentPlayer), purses[currentPlayer] );
 				
 				boolean winner = didPlayerWin();
 				currentPlayer++;
