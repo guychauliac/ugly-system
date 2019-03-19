@@ -2,12 +2,13 @@ package com.zenika.uglysystem.game;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class Game {
 	
+	private static final String ROCK = "Rock";
+
 	private static final Logger LOG = LoggerFactory.getLogger(Game.class);
 
     private ArrayList<String> players = new ArrayList<>();
@@ -22,6 +23,11 @@ public class Game {
     
     private int currentPlayer = 0;
     private boolean isGettingOutOfPenaltyBox;
+    private static String POP = "Pop";
+    private static String SCIENCE = "Science";
+    private static String SPORTS = "Sports";
+    
+    
     
     public  Game(){
     	for (int i = 0; i < 50; i++) {
@@ -46,8 +52,8 @@ public class Game {
 	    purses[howManyPlayers()] = 0;
 	    inPenaltyBox[howManyPlayers()] = false;
 	    
-	    LOG.info(playerName + " was added");
-	    LOG.info("They are player number " + players.size());
+	    LOG.info("{0} was added", playerName);
+	    LOG.info("They are player number {0}", players.size());
 		return true;
 	}
 	
@@ -57,23 +63,21 @@ public class Game {
 
 	public void roll(int roll) {
 		LOG.info(players.get(currentPlayer) + " is the current player");
-		LOG.info("They have rolled a " + roll);
+		LOG.info("They have rolled a {0} ", roll);
 		
 		if (inPenaltyBox[currentPlayer]) {
 			if (roll % 2 != 0) {
 				isGettingOutOfPenaltyBox = true;
 				
-				LOG.info(players.get(currentPlayer) + " is getting out of the penalty box");
+				LOG.info( "{0} is getting out of the penalty box", players.get(currentPlayer));
 				places[currentPlayer] = places[currentPlayer] + roll;
 				if (places[currentPlayer] > 11) places[currentPlayer] = places[currentPlayer] - 12;
 				
-				LOG.info(players.get(currentPlayer) 
-						+ "'s new location is " 
-						+ places[currentPlayer]);
-				LOG.info("The category is " + currentCategory());
+				LOG.info("{0}'s new location is {1}", players.get(currentPlayer), places[currentPlayer]);
+				LOG.info("The category is {0} ", currentCategory());
 				askQuestion();
 			} else {
-				LOG.info(players.get(currentPlayer) + " is not getting out of the penalty box");
+				LOG.info("{0} is not getting out of the penalty box", players.get(currentPlayer));
 				isGettingOutOfPenaltyBox = false;
 				}
 			
@@ -82,38 +86,36 @@ public class Game {
 			places[currentPlayer] = places[currentPlayer] + roll;
 			if (places[currentPlayer] > 11) places[currentPlayer] = places[currentPlayer] - 12;
 			
-			LOG.info(players.get(currentPlayer) 
-					+ "'s new location is " 
-					+ places[currentPlayer]);
-			LOG.info("The category is " + currentCategory());
+			LOG.info( "{0}'s new location is {1}", players.get(currentPlayer),places[currentPlayer]);
+			LOG.info("The category is {0} ", currentCategory());
 			askQuestion();
 		}
 		
 	}
 
 	private void askQuestion() {
-		if (currentCategory() == "Pop")
+		if (POP.equalsIgnoreCase(currentCategory()))
 			LOG.info(popQuestions.removeFirst());
-		if (currentCategory() == "Science")
+		if (SCIENCE.equalsIgnoreCase(currentCategory()))
 			LOG.info(scienceQuestions.removeFirst());
-		if (currentCategory() == "Sports")
+		if (SPORTS.equalsIgnoreCase(currentCategory()))
 			LOG.info(sportsQuestions.removeFirst());
-		if (currentCategory() == "Rock")
+		if (ROCK.equalsIgnoreCase(currentCategory()))
 			LOG.info(rockQuestions.removeFirst());		
 	}
 	
 	
 	private String currentCategory() {
-		if (places[currentPlayer] == 0) return "Pop";
-		if (places[currentPlayer] == 4) return "Pop";
-		if (places[currentPlayer] == 8) return "Pop";
-		if (places[currentPlayer] == 1) return "Science";
-		if (places[currentPlayer] == 5) return "Science";
-		if (places[currentPlayer] == 9) return "Science";
-		if (places[currentPlayer] == 2) return "Sports";
-		if (places[currentPlayer] == 6) return "Sports";
-		if (places[currentPlayer] == 10) return "Sports";
-		return "Rock";
+		if (places[currentPlayer] == 0) return POP;
+		if (places[currentPlayer] == 4) return POP;
+		if (places[currentPlayer] == 8) return POP;
+		if (places[currentPlayer] == 1) return SCIENCE;
+		if (places[currentPlayer] == 5) return SCIENCE;
+		if (places[currentPlayer] == 9) return SCIENCE;
+		if (places[currentPlayer] == 2) return SPORTS;
+		if (places[currentPlayer] == 6) return SPORTS;
+		if (places[currentPlayer] == 10) return SPORTS;
+		return ROCK;
 	}
 
 	public boolean wasCorrectlyAnswered() {
@@ -143,10 +145,7 @@ public class Game {
 		
 			LOG.info("Answer was corrent!!!!");
 			purses[currentPlayer]++;
-			LOG.info(players.get(currentPlayer) 
-					+ " now has "
-					+ purses[currentPlayer]
-					+ " Gold Coins.");
+			LOG.info("{0} now has {1} Gold Coins." , players.get(currentPlayer), purses[currentPlayer]);
 			
 			boolean winner = didPlayerWin();
 			currentPlayer++;
