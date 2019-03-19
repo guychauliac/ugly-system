@@ -21,6 +21,7 @@ public class FlagController {
             "SECRET_8_DEV0_SEC2_OPS0_Jhd7vzV892DG7QAnefHc59Lr5L999wVDcYXar3Gvca9527UX2",
             "SECRET_REDTEAMING_DEV0_SEC5_OPS0_*********z93Ur6842****"
             //"SECRET_0_Dev5_SEC-OPS4_2HcQaXfsHrFw3P2LD4JIY0nbd71Rsj07LX34jc6J9345mcAs",
+            "QUIZ_CLEANCODE_DEV1_SECO_OPS0_g267t87uqfaj4243eaz2h74p6jct222un5t76p3s27v4va2i"
             );
     }
 }
