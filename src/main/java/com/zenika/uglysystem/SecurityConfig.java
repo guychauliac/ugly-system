@@ -34,8 +34,8 @@ public class SecurityConfig {
                     .authorizeRequests()
                     .mvcMatchers("/admin").authenticated()
                     .and()
-                    .httpBasic()
-                    .and().requiresChannel().anyRequest().requiresSecure(); //Simone: trying to force https
+                    .httpBasic();
+                    //.and().requiresChannel().anyRequest().requiresSecure(); //Simone: trying to force https
         }
 
         @Autowired
