@@ -17,7 +17,7 @@ public class GameTest {
     @Test
     public void canAddPlayers() {
         Game game = GameTest.createGame();
-        assertEquals(game.howManyPlayers(), 2);
+        assertEquals(2, game.howManyPlayers());
         assertTrue(game.isPlayable());
     }
     
