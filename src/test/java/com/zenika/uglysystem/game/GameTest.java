@@ -22,11 +22,23 @@ public class GameTest {
     }
     
     @Test
+    public void gameIsNotPlayable() {
+        Game game = new Game();
+        game.add("p1");
+        assertEquals(1, game.howManyPlayers());
+        assertFalse(game.isPlayable());
+    }
+    
+    @Test
     public void canAnswerQuestions() {
         Game game = GameTest.createGame();
         game.roll(0);
         assertTrue(game.wrongAnswer());
         game.roll(1);
         assertTrue(game.wasCorrectlyAnswered());
+        game.roll(1);
+        for (int i = 0; i < 10; ++i) {
+            game.wasCorrectlyAnswered();    
+        }
     }
 }

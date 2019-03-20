@@ -52,8 +52,8 @@ public class Game {
 	    purses[howManyPlayers()] = 0;
 	    inPenaltyBox[howManyPlayers()] = false;
 	    
-	    LOG.info("{0} was added", playerName);
-	    LOG.info("They are player number {0}", players.size());
+	    LOG.info("{} was added", playerName);
+	    LOG.info("They are player number {}", players.size());
 		return true;
 	}
 	
@@ -63,22 +63,22 @@ public class Game {
 
 	public void roll(int roll) {
 		String currentPlayerString = players.get(currentPlayer);
-		LOG.info("{0} is the current player", currentPlayerString);
-		LOG.info("They have rolled a {0} ", roll);
+		LOG.info("{} is the current player", currentPlayerString);
+		LOG.info("They have rolled a {} ", roll);
 		
 		String currentCategory = currentCategory();
 		if (inPenaltyBox[currentPlayer]) {
 			if (roll % 2 != 0) {
 				isGettingOutOfPenaltyBox = true;
 				
-				LOG.info( "{0} is getting out of the penalty box", currentPlayerString);
+				LOG.info( "{} is getting out of the penalty box", currentPlayerString);
 				places[currentPlayer] = places[currentPlayer] + roll;
 				if (places[currentPlayer] > 11) places[currentPlayer] = places[currentPlayer] - 12;
 				
-				LOG.info("{0}'s new location is {1} \nThe category is {2} ", currentPlayerString, places[currentPlayer], currentCategory);
+				LOG.info("{}'s new location is {} \nThe category is {} ", currentPlayerString, places[currentPlayer], currentCategory);
 				askQuestion();
 			} else {
-				LOG.info("{0} is not getting out of the penalty box", currentPlayerString);
+				LOG.info("{} is not getting out of the penalty box", currentPlayerString);
 				isGettingOutOfPenaltyBox = false;
 				}
 			
@@ -87,7 +87,7 @@ public class Game {
 			places[currentPlayer] = places[currentPlayer] + roll;
 			if (places[currentPlayer] > 11) places[currentPlayer] = places[currentPlayer] - 12;
 			
-			LOG.info( "{0}'s new location is {1}\nThe category is {2}", currentPlayerString,places[currentPlayer], currentCategory);
+			LOG.info( "{}'s new location is {}\nThe category is {}", currentPlayerString,places[currentPlayer], currentCategory);
 			askQuestion();
 		}
 		
@@ -131,7 +131,7 @@ public class Game {
 			if (isGettingOutOfPenaltyBox) {
 				LOG.info("Answer was correct!!!!");
 				purses[currentPlayer]++;
-				LOG.info("{0} now has {1} Gold Coins.", players.get(currentPlayer), purses[currentPlayer] );
+				LOG.info("{} now has {} Gold Coins.", players.get(currentPlayer), purses[currentPlayer] );
 				
 				boolean winner = didPlayerWin();
 				currentPlayer++;
@@ -150,7 +150,7 @@ public class Game {
 		
 			LOG.info("Answer was corrent!!!!");
 			purses[currentPlayer]++;
-			LOG.info("{0} now has {1} Gold Coins." , players.get(currentPlayer), purses[currentPlayer]);
+			LOG.info("{} now has {} Gold Coins." , players.get(currentPlayer), purses[currentPlayer]);
 			
 			boolean winner = didPlayerWin();
 			currentPlayer++;
@@ -161,7 +161,7 @@ public class Game {
 	}
 	
 	public boolean wrongAnswer(){
-		LOG.info("Question was incorrectly answere\n{0} was sent to the penalty box",players.get(currentPlayer));
+		LOG.info("Question was incorrectly answere\n{} was sent to the penalty box",players.get(currentPlayer));
 		inPenaltyBox[currentPlayer] = true;
 		
 		currentPlayer++;

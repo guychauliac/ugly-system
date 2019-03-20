@@ -1,6 +1,7 @@
 - name: deploys the application
   hosts: all
   remote_user: ubuntu
+  serial: 1
   vars:
     timestamp: ""
 
