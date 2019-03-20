@@ -52,6 +52,8 @@ public class FlagController {
 				"WORKSHOP_OWASP_DEV0_SEC3_OPS0_73cdm877zjp3428g4xvu4cybt2kfea5797u42ms49b8k8y87",
 				"WORKSHOP_CTFSECU1_DEV1_SEC1_OPS1_yhax3s247gi0wfby2vbauifv48bxygeylszyfk4q1lcedy70",
 				"WORKSHOP_CTFSECU2_DEV2_SEC3_OPS2_s2glpb2ji74ipz9f1cx36gvq7gmjci1ua765pyexbomqulbl",
-				"WORKSHOP_ESCAPEGAME2_DEV3_SEC3_OPS3_gpo1oxeku1g8mvw2txpez16xzvo17h5dwz5bn91ngn18on08");
+				"WORKSHOP_ESCAPEGAME2_DEV3_SEC3_OPS3_gpo1oxeku1g8mvw2txpez16xzvo17h5dwz5bn91ngn18on08",
+				"WORKSHOP_LEGO4DEVOPS_DEV5_SEC2_OPS5_ZwWKKgx2LPLfjwuhxBjZ6BUPVHnCvjKq66WdBXrjrkbMVqpd"
+                );
 	}
 }
