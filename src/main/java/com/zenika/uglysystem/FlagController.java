@@ -1,4 +1,4 @@
-\package com.zenika.uglysystem;
+package com.zenika.uglysystem;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -46,14 +46,14 @@ public class FlagController {
 				"SECRET_COMMIT_DEV0_SEC1_OPS0_xtce92s3u3njh54746uni43fw7t352he83z82sa4prj6a953",
 				"SECRET_REDTEAMING_DEV0_SEC5_OPS0_kG4Q77PymVTe7Mm6NtNRkF3HuptQz93Ur6842bEw8Wz9T24i",
 				"WORKSHOP_DRMAD_DEV0_SEC2_OPS0_im5r86b85j8q9ct3q2238ix5r969744u3kmkk6g4tdfxh4d8",
-				"WORKSHOP_EVENTSTORMING_DEV1_SEC1_OPS1_fdzdgq96py282i6p4nj6r3h8v695c",
-				// ???
 				"WORKSHOP_EVENTSTORMING_DEV1_SEC1_OPS1_fdzdgq96py282i6p4nj6r3h8v695c444v3c97s5h9mhg5f88",
 				"WORKSHOP_OWASP_DEV0_SEC3_OPS0_73cdm877zjp3428g4xvu4cybt2kfea5797u42ms49b8k8y87",
 				"WORKSHOP_CTFSECU1_DEV1_SEC1_OPS1_yhax3s247gi0wfby2vbauifv48bxygeylszyfk4q1lcedy70",
 				"WORKSHOP_CTFSECU2_DEV2_SEC3_OPS2_s2glpb2ji74ipz9f1cx36gvq7gmjci1ua765pyexbomqulbl",
 				"WORKSHOP_ESCAPEGAME2_DEV3_SEC3_OPS3_gpo1oxeku1g8mvw2txpez16xzvo17h5dwz5bn91ngn18on08",
-				"WORKSHOP_LEGO4DEVOPS_DEV5_SEC2_OPS5_ZwWKKgx2LPLfjwuhxBjZ6BUPVHnCvjKq66WdBXrjrkbMVqpd"
+				"WORKSHOP_LEGO4DEVOPS_DEV5_SEC2_OPS5_ZwWKKgx2LPLfjwuhxBjZ6BUPVHnCvjKq66WdBXrjrkbMVqpd",
+				"WORKSHOP_CTFSECU1_DEV1_SEC1_OPS1_yhax3s247gi0wfby2vbauifv48bxygeylszyfk4q1lcedy70",
+				"WORKSHOP_CTFSECU2_DEV2_SEC3_OPS2_s2glpb2ji74ipz9f1cx36gvq7gmjci1ua765pyexbomqulbl"
                 );
 	}
 }
