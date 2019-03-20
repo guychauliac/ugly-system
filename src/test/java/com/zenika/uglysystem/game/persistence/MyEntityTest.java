@@ -1,10 +1,9 @@
 package com.zenika.uglysystem.game.persistence;
-import com.zenika.uglysystem.persistence.MyEntity;
+import static org.junit.Assert.assertEquals;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import com.zenika.uglysystem.persistence.MyEntity;
 
 public class MyEntityTest {
 
